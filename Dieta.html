@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dieta</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            body {
+              background: #555;
+            }
+            
+            #content {
+              max-width: 500px;
+              margin: auto;
+              background: white;
+              padding: 10px;             
+            }
+
+            
+/*.btn-primary:hover,*/
+/*.btn-primary:active*/
+/*.btn-primary:visited,*/
+.my-button:focus {
+  background-color: black !important;
+  border-color: black !important;
+}
+        </style>
+        <script>
+            var val;
+            var dieta=[]; 
+            var dieta1=[]; 
+
+            function getValue(){
+                //alert(event.srcElement.value);
+                //alert("Hola");
+                val = event.srcElement.value;
+                
+                if (dieta.indexOf(val) === -1) { //PARA INCLUIR EN EL ARRAY SIN REPETIR
+                    dieta.push(val);
+                    document.getElementById("myImg").src = "ok.jpg";
+                    console.log('La nueva colección de vegetales es: ' + dieta);
+                } else if (dieta.indexOf(val) > -1) {
+                    console.log(val + ' ya existe en la colección de verduras.');
+                }
+
+                dieta.forEach(recorrer); //PARA PINTAR EN EL DOCUMENTO EL ARRAY PERO NO FUNCIONA BIEN
+
+                //alert(val);
+            }
+
+            function recorrer(item, index) {
+                document.getElementById("demo1").innerHTML = "";
+                document.getElementById("demo1").innerHTML += index + ":" + item + "<br>";
+            }
+            
+            function getVal1(b){
+               var a=document.getElementById(b).elements.value;
+               alert(a);
+            }
+            
+            function myFunction() {
+              var x = document.getElementById("myForm").elements[0].value;
+              document.getElementById("demo").innerHTML = x;
+            }
+            </script>    
+      </head>
+<body>
+
+    <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="checkbox" checked> Checked
+        </label>
+        <label class="btn btn-secondary active">
+            <input type="checkbox" checked> Checked
+          </label>
+      </div>
+
+<form id="content" action=""></form>
+    <button type="button" id="1" onclick="getValue()" value="pimientanegra" class="my-button btn btn-primary">PIMIENTA NEGRA</button>
+    <img id="myImg" width="25" height="25"><br>
+    <button type="button" id="2" onclick="getValue()" value="tomate" class="btn btn-primary">TOMATE</button>
+    <img id="myImg" width="25" height="25"><br>
+    <button type="button" id="3" onclick="getValue()" value="teverde" class="btn btn-primary">TE VERDE</button>
+    <img id="myImg" width="25" height="25"><br>
+	<button type="button" id="3" onclick="getValue()" value="aceitunas" class="btn btn-primary">ACEITUNAS</button>
+    <img id="myImg" width="25" height="25"><br>
+	<button type="button" id="3" onclick="getValue()" value="cebollas" class="btn btn-primary">CEBOLLAS</button>
+    <img id="myImg" width="25" height="25"><br>
+    
+
+    <!--<input type="radio" id="aceoliva" name="gender" value="aceiteoliva">
+    <label for="female">ACEITE OLIVA</label><br>
+    <input type="radio" id="tomate" name="gender" value="tomate">
+    <label for="other">TOMATE</label><br>
+    <input type="radio" id="teverde" name="gender" value="teverde">
+    <label for="other">TE VERDE</label><br>
+    <input type="radio" id="ajo" name="gender" value="ajo">
+    <label for="other">AJO</label><br>
+    <input type="radio" id="avena" name="gender" value="avena">
+    <label for="other">AVENA</label><br>
+    <input type="radio" id="levacerv" name="gender" value="levaduracerveza">
+    <label for="other">LEVADURA CERVEZA</label><br>
+    <input type="radio" id="pipasol" name="gender" value="pipasgirasol">
+    <label for="other">PIPAS GIRASOL</label><br>
+    <input type="radio" id="pipacalab" name="gender" value="pipascalabaza">
+    <label for="other">PIPAS CALABAZA</label><br>-->
+  <input type="submit" class="btn" value="Submit">
+</form> 
+
+<p>Click the "Try it" button to display the value of the first element in the form.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+</body>
+</html>
